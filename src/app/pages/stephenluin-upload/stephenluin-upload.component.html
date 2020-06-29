@@ -1,0 +1,16 @@
+<p>
+  stephenluin-upload works!
+</p>
+<h2>Upload a File</h2>
+  <form ngNoForm>
+    <input id="barcode" name="barcode" type="text" >
+    <button (click)="upload()" type="button">Upload</button>
+    </form>
+    <h2>File Gallery</h2>
+     <div style="overflow:hidden;">
+        <div *ngFor="let item of items | async" style="position:relative;width:100px;height:100px;float:left;display:flex;justify-content:center;align-items:center;">
+            <span>{{item.name}}</span> 
+            <span>{{item.count}}</span>
+            <!-- <button (click)="delete(img)" style="position:absolute;top:2px;right:2px;">[x]</button> -->
+        </div>
+    </div> 

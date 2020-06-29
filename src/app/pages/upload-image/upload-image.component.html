@@ -1,0 +1,55 @@
+
+<div class="container">
+    <form>
+  <div class="card">
+    <div class="card-header">
+        Welcome
+      <!--  <span *ngIf="usr"> {{usr.phoneNumber}}</span> -->
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Select a file for upload:</h5>
+      <input type="file" class="form-control" name="uploadFile" (change)="getFiles($event)" accept=".png,.jpg" />
+      
+    </div>
+  </div>
+
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'"
+      [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
+  <div *ngIf="downloadURL | async; let downloadSRC" class="alert alert-info" role="alert">
+    File uploaded:
+    <img src="{{downloadSRC}}">
+  </div>
+
+ 
+
+
+  <div>
+    <label for="ShopTitle" >Shop Title</label>
+    <input type="text" class="form-control" [(ngModel)]="title" name="ShopTitle" placeholder="Shop Title">
+  </div>
+
+  
+
+  <div>
+      <label for="Description" >Example textarea</label>
+      <textarea class="form-control" [(ngModel)]="description" name="Description" placeholder="Short Description about the nature of shop" rows="3"></textarea>
+    </div>
+  <div>
+    <label for="Category" >Category</label>
+    <select class="form-control" [(ngModel)]="category" name="Category">
+      <option>Dresses</option>
+      <option>Hotels</option>
+      <option>Mobile Shops</option>
+      <option>Silks</option>
+      <option>Stores</option>
+    </select>
+  </div>
+
+  
+  <button type="submit" (click)="upload()" class="btn btn-primary">Submit</button>
+  </form>
+</div>

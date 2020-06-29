@@ -1,0 +1,81 @@
+<!-- Card Regular -->
+<!-- <div class="card card-cascade" *ngFor="let course of coursesObservable | async">
+
+     
+    <div class="view view-cascade overlay">
+        <img class="card-img-top" src="{{course.Url}}" alt="Card image cap">
+        <a>
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+
+   
+    <div class="card-body card-body-cascade text-center">
+
+      
+        <h4 class="card-title">
+            <strong>{{course.Title}}</strong>
+        </h4>
+   
+        <h6 class="font-weight-bold indigo-text py-2">{{course.Title}}</h6>
+   
+        <p class="card-text">{{course.Description}}
+        </p>
+
+        <div class="panel-body">
+            <button type="button" class="btn btn-danger btn-circle">
+                <i class="fa fa-heart"></i>
+            </button>
+
+            <button type="button" class="btn btn-danger btn-circle">
+                <i class="fa fa-bookmark"></i>
+            </button>
+        </div>
+       
+    </div>
+
+</div> -->
+<!-- Card Regular -->
+<!-- <div class="container">
+    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+    <i class="fa fa-github" aria-hidden="true"></i>
+    <i class="fa fa-codepen" aria-hidden="true"></i>
+    
+    <i class="fa fa-bookmark"></i>
+  </div> -->
+<div class="container ">
+    <h3>Shops </h3>
+    <span *ngIf="usr"> {{usr.phoneNumber}}</span>
+    <div class="row">
+        <div col-md-12>
+            <label for="Category">Category</label>
+            <select class="form-control" [(ngModel)]="category" (change)="filterBy(category)" name="Category">
+                <option>Dresses</option>
+                <option>Hotels</option>
+                <option>Mobile Shops</option>
+                <option>Silks</option>
+                <option>Stores</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row my-flex-card" *ngIf="items$ | async; let items; else loading">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded col-md-3   " *ngFor="let item of items">
+            <img class=" h-100 " src="{{item.payload.val().Url}}" alt="card image">
+            <div class="card-img-overlay">
+                <div class="card-group" style=" color:white;">
+                    <div class="card-body ">
+                        <h4 class="card-title">{{item.payload.val().Title}}</h4>
+                        <p class="card-text">{{item.payload.val().Description}}</p>
+                        <div class=" btn-circle hvr-box-shadow-outset">
+                            <i class="fa fa-heart   " style="cursor:pointer; color:red;" (click)="likeit(item)"></i>{{item.payload.val().Likes}}
+                        </div>
+                        <div class=" btn-circle hvr-box-shadow-outset">
+                            <i class="fa fa-bookmark" style="cursor:pointer; color:blue;" (click)="bookmarkit(item.payload.val().key)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,54 @@
+
+<div>
+  <table id="customers">
+    <tr >
+      <th>
+        drivername:      
+      </th>
+      
+      <th>
+        driver mobile:      
+      </th>
+      <th>
+        requested AT :
+      </th>
+   
+      <th>
+        Auto Estimate
+      </th>
+   
+      <th>
+        pick up location
+      </th>
+   <th>
+     Drop Location
+   </th>
+   <th>Driver called customer</th>
+    </tr>
+    <tr *ngFor="let item of Results">
+      <td>
+        <span *ngIf="item.get('driver');">{{ item.get('driver').get('name') }}</span>
+      </td>
+      <td>
+        <span *ngIf="item.get('driver');">{{ item.get('driver').get('phonenumber') }}</span>
+      </td>
+      <td style="font-weight:bold">
+        {{item.get('createdAt')|date: 'medium'}}
+      </td>
+      
+      <td>
+        {{item.get('auto_estimate')}}
+      </td>
+      <td>
+        <span *ngIf="item.get('pickup_location');">{{ item.get('pickup_address') }}</span>
+      </td>
+      <td>
+        <span *ngIf="item.get('pickup_location');">{{ item.get('drop_address') }}</span>
+      </td>
+   
+      <td>
+        <span *ngIf="item.get('driver_initiated_call_time');" style="font-weight:bold">{{ (item.get('driver_initiated_call_time')*1000)|date: 'medium' }}</span>
+      </td>
+   
+    </tr>  </table>
+</div>
