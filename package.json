@@ -28,7 +28,7 @@
     "bufferutil": "^3.0.3",
     "core-js": "^2.5.4",
     "firebase": "^5.0.3",
-    "parse": "^1.11.1",
+    "parse": "^2.10.0",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",
     "utf-8-validate": "^4.0.0",
